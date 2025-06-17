@@ -47,3 +47,17 @@ boxplot(BPchange ~ Animal, data = Rabbit,
 ```
 
 The below boxplot measures the BP change at rabbit level. R1 shows a much larger and more variable blood pressure change compared to the other rabbits, suggesting that it responded more strongly or differently to the treatment, while R2 to R5 had consistently lower and more similar responses.
+
+## Analysis
+
+```{r}
+ggplot(rabbit, aes(x = Time, y = BPchange, color = as.factor(Dose), group = Dose)) +
+  geom_line() +
+  geom_point() +
+  labs(title = "Blood Pressure Change in Rabbits by Dose Over Time",
+       x = "Time",
+       y = "Change in Blood Pressure",
+       color = "Dose") +
+  theme_minimal()
+```
+

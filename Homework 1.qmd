@@ -1,0 +1,49 @@
+---
+title: "Homework 1"
+format: pdf
+editor: visual
+author: Varsha- 22409969
+echo: false
+---
+
+## Loading data
+
+This homework will utilise the **Rabbit** dataset from the **MASS package**. The Rabbit dataset is a study of 5 rabbits tested with either phenylbiguanide or a saline control. The dataset measures the effect of varying doses of Phenylbiguanide on the blood pressure of rabbits versus a control dose of saline solution. The dimensions of the dataset are as below:
+
+```{r}
+#Loading MASS package
+library(MASS)
+
+#Loading knitr package
+library(knitr)
+
+#Loading Rabbit dataset
+data(Rabbit)
+
+#Dimensions of Rabbit dataset
+print(paste(dim(Rabbit)))
+
+#Sample rows from the dataset
+kable(head(Rabbit,5))
+```
+
+## Plot
+
+```{r}
+#| label: fig-rabbit
+#| fig-cap: "Boxplot of BP Change by Rabbit"
+#Boxplot of BP change by rabbit
+boxplot(BPchange ~ Animal, data = Rabbit,
+        xlab = "Rabbit #", 
+        ylab = "BP Change",
+        main = "Change by Animal",
+        col = c("#66c2a5", "#fc8d62", "#8da0cb", "#e78ac3", "#a6d854"),
+        border = "gray30",
+        boxwex = 0.6,
+        cex.axis = 1.2,
+        cex.lab = 1.3,
+        cex.main = 1.5)
+
+```
+
+The below boxplot measures the BP change at rabbit level. R1 shows a much larger and more variable blood pressure change compared to the other rabbits, suggesting that it responded more strongly or differently to the treatment, while R2 to R5 had consistently lower and more similar responses.

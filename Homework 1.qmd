@@ -17,6 +17,9 @@ library(MASS)
 #Loading knitr package
 library(knitr)
 
+#Loading ggplot package
+library(ggplot2)
+
 #Loading Rabbit dataset
 data(Rabbit)
 
@@ -51,7 +54,7 @@ The below boxplot measures the BP change at rabbit level. R1 shows a much larger
 ## Analysis
 
 ```{r}
-ggplot(rabbit, aes(x = Time, y = BPchange, color = as.factor(Dose), group = Dose)) +
+ggplot(rabbit, aes(x = Animal, y = BPchange, color = as.factor(Dose), group = Dose)) +
   geom_line() +
   geom_point() +
   labs(title = "Blood Pressure Change in Rabbits by Dose Over Time",
